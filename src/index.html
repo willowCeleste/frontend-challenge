@@ -5,13 +5,29 @@
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
+            
         <script src="./app.js"></script>
+        <style>
+                #map {
+                  height: 50%;
+                }
+                html, body {
+                  height: 1000px;
+                  width: 1000px;
+                  margin: 0;
+                  padding: 0;
+                }
+              </style>
     </head>
     <body>
-        <header></header>
-        <body>
+            <input type='text' id='address-input' />
+            <button id='map-button'>map</button>
+            <div id='map'></div>
+            
             <ul id='stations-list'></ul>
-        </body>
-        <footer></footer>
+            <div id='test-div'></div>
+
+        
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPO4DQhcrJfG7sDC9b760dvH4KsoJpSJY&libraries=geometry"></script>
     </body>
 </html>
