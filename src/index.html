@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <link rel="stylesheet" href="./index.css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
-            
-        <script src="./app.js"></script>
-        <style>
-                #map {
-                  height: 50%;
-                }
-                html, body {
-                  height: 1000px;
-                  width: 1000px;
-                  margin: 0;
-                  padding: 0;
-                }
-              </style>
+            crossorigin="anonymous"></script>     
+        <script src="./js/index.js"></script>
+       
     </head>
     <body>
-            <input type='text' id='address-input' />
-            <button id='map-button'>map</button>
-            <div id='map'></div>
+      <div class='container'>
+        <header>
+          <div id='title'>
+            Indego Finder
+          </div>
+          <div id='weather-container'>
             
-            <ul id='stations-list'></ul>
-            <div id='test-div'></div>
-
+          </div>
+        </header>
+        <main>
+          <div id='search'>
+            
+              <input type='text' id='address-input' />
+              <button id='map-button'>Search</button>
+          </div>
+          
+          <div id='map'></div>
         
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPO4DQhcrJfG7sDC9b760dvH4KsoJpSJY&libraries=geometry"></script>
+          
+          
+          
+
+      
+        </main>
+          
+          
+      </div>
+      
+
+
+      <script src="./js/index.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPO4DQhcrJfG7sDC9b760dvH4KsoJpSJY&libraries=geometry"></script>
     </body>
 </html>
