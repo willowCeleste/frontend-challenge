@@ -4,6 +4,11 @@ html, body {
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    height: 100%;
+    position: relative;
+}
+
 header {
     margin: 20px 0;
     display: flex;
@@ -17,6 +22,12 @@ footer {
 }
 
 footer a {
+    color: #596869;
+    transition: color .5s;
+    -webkit-transition: color .5s;
+}
+
+footer a:hover {
     color: #36453B;
 }
 
@@ -45,6 +56,12 @@ footer a {
     border: none;
     width: 80px;
     cursor: pointer;
+    transition: background-color .5s;
+    -webkit-transition: background-color .5s;
+}
+
+#map-button:hover {
+    background-color: #36453B;
 }
 
 #search {
@@ -66,29 +83,24 @@ footer a {
 }
 
 #map {
-    height: 600px;
+    height: 500px;
     width: 90%;
     margin: 0 auto 20px auto;
-
 }
 
 .hidden {
     display: none;
 }
+
 .alert {
     color: red;
     font-weight: bold;
     text-align: center; 
 }
 
-.container {
-   
-
-}
-
 .map-container {
     position: relative;
-    flex-direction: column;
+    height: 100%;
 }
 
 .map-error {
@@ -170,4 +182,8 @@ footer a {
 
 .red {
     color: red;
+}
+
+.hover-transition:hover {
+    background-color: #36453B;
 }
