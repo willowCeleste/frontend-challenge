@@ -71,10 +71,33 @@ footer {
 
 }
 
+.hidden {
+    display: none;
+}
 .alert {
     color: red;
     font-weight: bold;
     text-align: center; 
+}
+
+.map-container {
+    position: relative;
+}
+
+.map-error {
+    position: absolute;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: #FFF;
+    color: red;
+    z-index: 1000;
+    width: 350px;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
 }
 
 .alert::before {

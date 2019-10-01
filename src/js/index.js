@@ -171,23 +171,28 @@ $(document).ready(function() {
         .done(currentWeather => {
             $('#weather-container').append(WeatherHeader(weatherService.Weather(currentWeather)));
         })
-        .fail((result) => {
-            console.log(result.responseJSON.message);
+        .fail((error) => {
+            console.log(error.responseJSON.message);
             $('#weather-container').append('<div class="weather-error">Failed to load weather info. Ride carefully!</div>');
         });
 
     stations = stationService.getStations();
-    stations.done(stations => {
-        mappedStations = stationService.mapStations(stations.features)
-        
-        initMap(mappedStations.map(station => {
-            return station.coordinates;
-        }));
-        mapService.addMarkers(map, mappedStations);
-    });
+    stations
+        .done(stations => {
+            mappedStations = stationService.mapStations(stations.features)
+            
+            initMap(mappedStations.map(station => {
+                return station.coordinates;
+            }));
+            mapService.addMarkers(map, mappedStations);
+         })
+         .fail((error) => {
+            console.log(error);
+            drawMap();
+            $('.map-error').removeClass('hidden');
+         });
 
     $('#map-button').click(() => {
-        // TODO: search for address here
         let address = $('#address-input').val();
         mapService.getLocationFromAddress(address)
             .done(result => {  
@@ -199,8 +204,6 @@ $(document).ready(function() {
                 }));
                 mapService.addMarkers(map, closestStations, result.results[0].formatted_address, coordinates);
             })
-        
-        
     })
 });
 
