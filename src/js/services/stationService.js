@@ -21,5 +21,3 @@ const StationService = () => {
         }
     }
 }
-
-export default StationService;
