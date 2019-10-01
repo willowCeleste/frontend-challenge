@@ -60,7 +60,7 @@ footer {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     border: 1px solid #CCC;
-    font-size: 1.5em;
+    font-size: 1.3em;
     padding: 0 20px;
 }
 
@@ -74,8 +74,7 @@ footer {
 .alert {
     color: red;
     font-weight: bold;
-    text-align: center;
-    
+    text-align: center; 
 }
 
 .alert::before {
@@ -100,6 +99,11 @@ footer {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+
+.weather-error {
+    text-align: right;
+    font-style: italic;
 }
 
 .item-station {

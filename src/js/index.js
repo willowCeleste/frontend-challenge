@@ -167,9 +167,14 @@ let weather;
 
 $(document).ready(function() {
     weather = weatherService.getWeather();
-    weather.done(currentWeather => {
-        $('#weather-container').append(WeatherHeader(weatherService.Weather(currentWeather)));
-    })
+    weather
+        .done(currentWeather => {
+            $('#weather-container').append(WeatherHeader(weatherService.Weather(currentWeather)));
+        })
+        .fail((result) => {
+            console.log(result.responseJSON.message);
+            $('#weather-container').append('<div class="weather-error">Failed to load weather info. Ride carefully!</div>');
+        });
 
     stations = stationService.getStations();
     stations.done(stations => {
