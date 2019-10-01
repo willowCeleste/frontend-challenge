@@ -63,9 +63,7 @@ const MapService = () => {
                     infowindow.open(map, marker)
                 });
             }
-            console.log(address, addressCoordinates);
             let addressMarker = new google.maps.Marker({
-
                 position: addressCoordinates,
                 map: map,
                 title: address,
@@ -156,6 +154,7 @@ const WeatherHeader = (weather) => {
 
 const StationItem = (station) => {
     let openDocksPercentage = Math.floor((station.docksAvailable / station.totalDocks) * 100);
+    let availableBikesPercentage = Math.floor((station.bikesAvailable / station.totalDocks) * 100);
     const determineScarcityColor = percentage => {
         if (percentage <= 25) {
             return 'red';
@@ -165,14 +164,12 @@ const StationItem = (station) => {
         }
         return 'green';
     }
-
-    let scarcityColor = determineScarcityColor(openDocksPercentage);
     
     return `
         <div class='item-station'>
             <div class='station-name'>${station.name}</div>
-            <p>${station.bikesAvailable} bikes available</p>
-            <p class=${scarcityColor}>${station.docksAvailable} out of ${station.totalDocks} docks available</p>                 
+            <p class=${determineScarcityColor(availableBikesPercentage)}>${station.bikesAvailable} bikes available</p>
+            <p class=${determineScarcityColor(openDocksPercentage)}>${station.docksAvailable} out of ${station.totalDocks} docks available</p>                 
         <div>
     `
 }
@@ -185,8 +182,6 @@ let stations;
 let mappedStations;
 let map;
 let weather;
-
-
 
 $(document).ready(function() {
     weather = weatherService.getWeather();
