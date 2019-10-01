@@ -201,7 +201,7 @@ $(document).ready(function() {
         initMap(mappedStations.map(station => {
             return station.coordinates;
         }));
-        addMarkers(map, mappedStations);
+        mapService.addMarkers(map, mappedStations);
     });
 
     $('#map-button').click(() => {
@@ -211,7 +211,7 @@ $(document).ready(function() {
             .done(result => {  
                 console.log(result);
                 let coordinates = result.results[0].geometry.location; 
-                let closestStations = getClosestStations(new google.maps.LatLng(coordinates.lat, coordinates.lng), mappedStations, 5);
+                let closestStations = mapService.getClosestStations(new google.maps.LatLng(coordinates.lat, coordinates.lng), mappedStations, 5);
                 drawMap(closestStations.map(closeStation => {
                     return closeStation.coordinates;
                 }));
@@ -241,34 +241,3 @@ const drawMap = (coordinates) => {
     }
     return map;
 }
-
-const addMarkers = (map, stations) => {
-    for (var i = 0; i < stations.length; i++) {
-        let marker = new google.maps.Marker({
-            position: stations[i].coordinates,
-            map: map,
-            title: stations[i].name
-        });
-        
-    }
-}
-
-const getClosestStations = (latLng, stations, count) => {
-    let stationsWithDistance = [];
- 
-    for (var i = 0; i < stations.length; i++) {
-        var currentStation = stations[i];
-        var dist = google.maps.geometry.spherical.computeDistanceBetween(
-            latLng, 
-            new google.maps.LatLng(currentStation.coordinates.lat, currentStation.coordinates.lng)
-        );
-        currentStation.distance = dist;
-        stationsWithDistance.push(currentStation);
-
-    }
-    stationsWithDistance.sort((a, b) => {
-        return a.distance - b.distance;
-    });
-    return stationsWithDistance.slice(0, count);
-}
-
