@@ -93,8 +93,7 @@ const MapService = () => {
         getLocationFromAddress: (address) => {
             return $.getJSON(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`);
            
-        }
-        
+        }   
     };
 }
 
@@ -126,28 +125,11 @@ const WeatherService = () => {
 const WeatherHeader = (weather) => {
     let iconPath = `http://openweathermap.org/img/wn/${weather.icon}.png`;
 
-    const determineBackgroundColor = (weatherId) => {
-        if (weatherId >= 200 && weatherId <= 599) {
-            return 'rainy';
-        }
-        if (weatherId >= 600 && weatherId <= 699) {
-            return 'snowy';
-        }
-        if (weatherId === 800) {
-            return 'sunny';
-        }
-        if (weatherId >= 801 && weatherId <= 804) {
-            return 'cloudy';
-        } else {
-            return '';
-        }
-    }
-    
     return `
-        <div class=${determineBackgroundColor(weather.weatherId)}>
+        <div class='weather ${weather.weatherId < 800 ? "alert" : ""}'>
             <img src='${iconPath}' />
             <span>${Math.floor(weather.temperature)}&#176;</span>
-            <span>${weather.description}</span>
+            <span>&nbsp;${weather.description}</span>
         </div>
     `;
 }
