@@ -1,9 +1,9 @@
 let express = require('express');
 let app = express();
 
+app.set('port', (process.env.PORT || 5000));
 app.use(express.static('src'));
 
-let server = app.listen(3000, function(){
-   var port = server.address().port;
-   console.log('server running on ' + port);
-});
+app.listen(app.get('port'), function() {
+   console.log("Node app is running at localhost:" + app.get('port'))
+ })

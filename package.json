@@ -19,5 +19,8 @@
   "homepage": "https://github.com/punkave/frontend-challenge#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "8.12.0"
   }
 }
