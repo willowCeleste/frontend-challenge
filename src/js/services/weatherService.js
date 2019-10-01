@@ -1,5 +1,5 @@
 const WeatherService = () => {
-    const apiKey = 'fc5fec7999f7c9bba87c200421b27230';
+    const apiKey = process.env.OPEN_WEATHER_API_KEY;
     const cityId = '4560349'
     const apiUrl = `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${apiKey}&units=imperial`;
     

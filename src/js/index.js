@@ -38,7 +38,6 @@ $(document).ready(function() {
         let address = $('#address-input').val();
         mapService.getLocationFromAddress(address)
             .done(result => {  
-                console.log(result);
                 let coordinates = result.results[0].geometry.location; 
                 let closestStations = mapService.getClosestStations(new google.maps.LatLng(coordinates.lat, coordinates.lng), mappedStations, 5);
                 drawMap(closestStations.map(closeStation => {

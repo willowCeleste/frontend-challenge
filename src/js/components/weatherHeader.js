@@ -1,5 +1,5 @@
 const WeatherHeader = (weather) => {
-    let iconPath = `http://openweathermap.org/img/wn/${weather.icon}.png`;
+    let iconPath = `https://openweathermap.org/img/wn/${weather.icon}.png`;
 
     return `
         <div class='weather ${weather.weatherId < 800 ? "alert" : ""}'>
