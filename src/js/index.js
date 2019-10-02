@@ -34,18 +34,12 @@ $(document).ready(function() {
             $('.map-error').removeClass('hidden');
          });
 
-    $('#search-button').click(() => {
-        let address = $('#address-input').val();
-        mapService.getLocationFromAddress(address)
-            .done(result => {  
-                let coordinates = result.results[0].geometry.location; 
-                let closestStations = mapService.getClosestStations(new google.maps.LatLng(coordinates.lat, coordinates.lng), mappedStations, 5);
-                drawMap(closestStations.map(closeStation => {
-                    return closeStation.coordinates;
-                }));
-                mapService.addMarkers(map, closestStations, result.results[0].formatted_address, coordinates);
-            })
-    })
+    $('#search-button').on('click', searchForStations);
+    $('#address-input').on('keypress', e => {
+        if (e.keyCode === 13) {
+            searchForStations();
+        }
+    });
 });
 
 const initMap = (bounds) => drawMap(bounds);
@@ -66,4 +60,17 @@ const drawMap = (coordinates) => {
         });
     }
     return map;
+}
+
+const searchForStations = () => {
+    let address = $('#address-input').val();
+        mapService.getLocationFromAddress(address)
+            .done(result => {  
+                let coordinates = result.results[0].geometry.location; 
+                let closestStations = mapService.getClosestStations(new google.maps.LatLng(coordinates.lat, coordinates.lng), mappedStations, 5);
+                drawMap(closestStations.map(closeStation => {
+                    return closeStation.coordinates;
+                }));
+                mapService.addMarkers(map, closestStations, result.results[0].formatted_address, coordinates);
+            })
 }
