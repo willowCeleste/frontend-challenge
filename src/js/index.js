@@ -70,7 +70,7 @@ const drawMap = (coordinates) => {
 const searchForStations = () => {
     let address = $('#address-input').val();
     
-    mapService.getLocationFromAddress(address)
+    return mapService.getLocationFromAddress(address)
         .done(result => {  
             let coordinates = result.results[0].geometry.location; 
             let closestStations = mapService.getClosestStations(new google.maps.LatLng(coordinates.lat, coordinates.lng), mappedStations, 5);
@@ -91,8 +91,6 @@ const showError = (message) => {
     setTimeout(() => {
         $('.error').animate({opacity: "0"});
     }, 4000)
-    
-    
 }
 });
 
