@@ -182,3 +182,18 @@ footer a:hover {
 .hover-transition:hover {
     background-color: #36453B;
 }
+
+@media screen and (min-width: 480px) {
+    header {
+        flex-direction: column;
+    }
+
+    #title {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .weather {
+        justify-content: center;
+    }
+  }
