@@ -32,7 +32,7 @@ footer a:hover {
 
 #title {
     font-size: 2em;
-    font-family: 'Russo One', sans-serif;
+    font-family: 'Julius Sans One', sans-serif;
     color: #6F263D;
     flex: 1;
     display: flex;
@@ -64,6 +64,8 @@ footer a:hover {
     display: flex;
     align-items: stretch;
     justify-content: center;
+    height: 40px;
+    box-shadow: 3px 3px 5px #adadad;
 }
 
 #address-input {
@@ -124,7 +126,6 @@ footer a:hover {
     width: 25px;
     height: 25px;
     line-height: 25px;
-
 }
 
 .container-flex {
@@ -184,25 +185,61 @@ footer a:hover {
     background-color: #36453B;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1230px) {
     header {
         flex-direction: column;
     }
 
     #search {
         margin-bottom: 10px;
+        align-items: center;
+        align-content: center;
+        box-shadow: none;
+        text-align: center;
     }
 
     #address-input {
         font-size: 1em;
+        box-shadow: 3px 3px 5px #adadad;
+    }
+
+    #search-button {
+        box-shadow: 3px 3px 5px #adadad;
     }
 
     #title {
         justify-content: center;
         margin-bottom: 20px;
+        font-size: 3em;
     }
 
     .weather {
         justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    #map {
+        width: 100%;
+    }
+
+    #address-input {
+        height: 80px;
+    }
+
+    #weather-container {
+        margin-top: 20px;
+    }
+
+    .weather {
+        font-size: 1.8em;
+    }
+
+    #search {
+        margin-top: 10px;
+    }
+    
+    #search-button {
+        height: 80px;
     }
   }
