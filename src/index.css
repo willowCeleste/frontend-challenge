@@ -5,7 +5,6 @@ html, body {
 }
 
 body {
-    height: 100%;
     position: relative;
 }
 
@@ -33,6 +32,7 @@ footer a:hover {
 
 #title {
     font-size: 2em;
+    font-family: 'Russo One', sans-serif;
     color: #6F263D;
     flex: 1;
     display: flex;
@@ -73,7 +73,7 @@ footer a:hover {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     border: 1px solid #CCC;
-    font-size: 1.3em;
+    font-size: 1.2em;
     padding: 0 20px;
 }
 
@@ -81,6 +81,7 @@ footer a:hover {
     height: 800px;
     width: 90%;
     margin: 0 auto 20px auto;
+    box-shadow: 3px 3px 5px #adadad;
 }
 
 .hidden {
@@ -183,9 +184,17 @@ footer a:hover {
     background-color: #36453B;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 1200px) {
     header {
         flex-direction: column;
+    }
+
+    #search {
+        margin-bottom: 10px;
+    }
+
+    #address-input {
+        font-size: 1em;
     }
 
     #title {
