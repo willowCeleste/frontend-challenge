@@ -2,12 +2,16 @@ const stationService = StationService();
 const mapService = MapService();
 const weatherService = WeatherService();
 
-let stations;
+$(() => {
+    let stations;
 let mappedStations;
 let map;
 let weather;
 
-$(document).ready(function() {
+let defaultMapCoordinates = {lat: 39.952583, lng: -75.165222};
+
+$(document).ready(() => {
+    
     weather = weatherService.getWeather();
     weather
         .done(currentWeather => {
@@ -15,6 +19,7 @@ $(document).ready(function() {
         })
         .fail((error) => {
             console.log(error.responseJSON.message);
+            showError("Error: Couldn't retrive weather data")
             $('#weather-container').append('<div class="weather-error">Failed to load weather info. Ride carefully!</div>');
         });
 
@@ -28,10 +33,10 @@ $(document).ready(function() {
             }));
             mapService.addMarkers(map, mappedStations);
          })
-         .fail((error) => {
-            console.log(error);
+         .fail(error => {
             drawMap();
-            $('.map-error').removeClass('hidden');
+            console.log(error);
+            showError("Error: Couldn't get station info from Indego");
          });
 
     $('#search-button').on('click', searchForStations);
@@ -55,7 +60,7 @@ const drawMap = (coordinates) => {
 
     } else {
         map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 39.952583, lng: -75.165222},
+            center: defaultMapCoordinates,
             zoom: 13
         });
     }
@@ -64,13 +69,30 @@ const drawMap = (coordinates) => {
 
 const searchForStations = () => {
     let address = $('#address-input').val();
-        mapService.getLocationFromAddress(address)
-            .done(result => {  
-                let coordinates = result.results[0].geometry.location; 
-                let closestStations = mapService.getClosestStations(new google.maps.LatLng(coordinates.lat, coordinates.lng), mappedStations, 5);
-                drawMap(closestStations.map(closeStation => {
-                    return closeStation.coordinates;
-                }));
-                mapService.addMarkers(map, closestStations, result.results[0].formatted_address, coordinates);
-            })
+    
+    mapService.getLocationFromAddress(address)
+        .done(result => {  
+            let coordinates = result.results[0].geometry.location; 
+            let closestStations = mapService.getClosestStations(new google.maps.LatLng(coordinates.lat, coordinates.lng), mappedStations, 5);
+            drawMap(closestStations.map(closeStation => {
+                return closeStation.coordinates;
+            }));
+            mapService.addMarkers(map, closestStations, result.results[0].formatted_address, coordinates);
+        })
+        .fail(error => {
+            console.log(error);
+            showError("Error getting address location");
+        })
 }
+
+const showError = (message) => {
+    console.log('show error');
+    $('#errors-container').append(ErrorMessage(message));
+    setTimeout(() => {
+        $('.error').animate({opacity: "0"});
+    }, 4000)
+    
+    
+}
+});
+

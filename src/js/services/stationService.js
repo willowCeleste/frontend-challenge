@@ -1,5 +1,6 @@
 const StationService = () => {
     const apiUrl = 'https://dkw6qugbfeznv.cloudfront.net';
+
     return {
         getStations: () => {
             return $.getJSON(apiUrl);
