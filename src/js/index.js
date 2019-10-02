@@ -34,7 +34,7 @@ $(document).ready(function() {
             $('.map-error').removeClass('hidden');
          });
 
-    $('#map-button').click(() => {
+    $('#search-button').click(() => {
         let address = $('#address-input').val();
         mapService.getLocationFromAddress(address)
             .done(result => {  

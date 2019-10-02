@@ -43,12 +43,7 @@ footer a:hover {
     flex: 1;
 }
 
-#stations-list {
-    list-style: none;
-    padding: 0;
-}
-
-#map-button {
+#search-button {
     background-color: #596869;
     color: #FFF;
     font-size: 1.1em;
@@ -83,7 +78,7 @@ footer a:hover {
 }
 
 #map {
-    height: 500px;
+    height: 800px;
     width: 90%;
     margin: 0 auto 20px auto;
 }

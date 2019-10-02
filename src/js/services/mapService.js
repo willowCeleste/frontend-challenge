@@ -1,5 +1,5 @@
 const MapService = () => {
-    let apiKey = process.env.MAPS_API_KEY;
+    let apiKey = 'AIzaSyBPO4DQhcrJfG7sDC9b760dvH4KsoJpSJY';
     return {
         initMap: bounds => this.drawMap(bounds),
         drawMap: (coordinates) => {
