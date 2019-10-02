@@ -120,7 +120,6 @@ footer a:hover {
     opacity: 1;
 }
 
-
 .alert::before {
     content: '!';
     background-color: red;
@@ -143,8 +142,6 @@ footer a:hover {
     font-style: italic;
 }
 
-
-
 .station-name {
     background-color: #36453B;
     color: #FFF;
@@ -154,12 +151,15 @@ footer a:hover {
 .rainy {
     background-color: #2f73e0;
 }
+
 .cloudy {
     background-color: #d9d9d9
 }
+
 .sunny {
     background-color: #ff9b05;
 }
+
 .snowy {
     background-color: #d6e5ff;
 }
