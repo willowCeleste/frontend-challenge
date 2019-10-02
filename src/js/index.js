@@ -3,7 +3,7 @@ const mapService = MapService();
 const weatherService = WeatherService();
 
 $(() => {
-    let stations;
+let stations;
 let mappedStations;
 let map;
 let weather;
@@ -86,7 +86,6 @@ const searchForStations = () => {
 }
 
 const showError = (message) => {
-    console.log('show error');
     $('#errors-container').append(ErrorMessage(message));
     setTimeout(() => {
         $('.error').animate({opacity: "0"});
