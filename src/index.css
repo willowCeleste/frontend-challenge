@@ -6,18 +6,23 @@ html, body {
 
 body {
     position: relative;
+    display: flex;
+    flex-direction:column;
+    min-height:100vh;
 }
 
 header {
     margin: 20px 0;
     display: flex;
     padding: 0 20px;
+    flex-grow:0;
 }
 
 footer {
     text-align: center;
     font-size: .9em;
     font-style: italic;
+    flex-grow: 0;
 }
 
 footer a {
@@ -84,6 +89,7 @@ footer a:hover {
     width: 90%;
     margin: 0 auto 20px auto;
     box-shadow: 3px 3px 5px #adadad;
+    flex-grow:1;
 }
 
 .hidden {
@@ -96,10 +102,6 @@ footer a:hover {
     text-align: center; 
 }
 
-.map-container {
-    position: relative;
-    height: 100%;
-}
 
 .map-error {
     position: absolute;
@@ -210,7 +212,7 @@ footer a:hover {
     #title {
         justify-content: center;
         margin-bottom: 20px;
-        font-size: 3em;
+        font-size: 3em
     }
 
     .weather {
@@ -238,7 +240,7 @@ footer a:hover {
     #search {
         margin-top: 10px;
     }
-    
+
     #search-button {
         height: 80px;
     }
