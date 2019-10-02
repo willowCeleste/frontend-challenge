@@ -85,7 +85,7 @@ footer a:hover {
 }
 
 #map {
-    height: 800px;
+    min-height: 400px;
     width: 90%;
     margin: 0 auto 20px auto;
     box-shadow: 3px 3px 5px #adadad;
