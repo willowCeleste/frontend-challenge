@@ -1,3 +1,12 @@
+## How to Run
+
+1. Clone the repo
+1. `cd frontend-challenge`
+1. `npm install`
+1. `npm start`
+
+Now open `localhost:5000` in a browser!
+
 ## P'unk Avenue frontend challenge
 
 Using HTML, CSS, and one of the following:
